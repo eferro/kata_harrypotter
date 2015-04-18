@@ -31,3 +31,8 @@ with context('Harry Potter Kata'):
         with it('dos copias distintas tienen un descuento de 5'):
             expect(precioLibros([LIBRO1, LIBRO2])).to(equal(16*0.95))
             expect(precioLibros([LIBRO2, LIBRO1])).to(equal(16*0.95))
+
+    with describe('comprando tres'):
+        with it('tres iguales cuestan 24'):
+            expect(precioLibros([LIBRO1, LIBRO1, LIBRO1])).to(equal(24))
+        
