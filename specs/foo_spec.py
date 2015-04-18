@@ -35,4 +35,6 @@ with context('Harry Potter Kata'):
     with describe('comprando tres'):
         with it('tres iguales cuestan 24'):
             expect(precioLibros([LIBRO1, LIBRO1, LIBRO1])).to(equal(24))
-        
+
+        with it('de los tres, solo dos distintos'):
+            expect(precioLibros([LIBRO1, LIBRO1, LIBRO2])).to(equal(16*0.95 + PRECIO_UNITARIO))        
