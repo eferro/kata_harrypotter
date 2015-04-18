@@ -5,7 +5,7 @@ from hamcrest import *
 from doublex import *
 
 def precioLibros(libros):
-    return 8
+    return 8 * len(libros)
 
 
 with context('Harry Potter Kata'):
