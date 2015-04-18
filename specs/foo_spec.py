@@ -9,8 +9,13 @@ def precioLibros(libros):
 
 
 with context('Harry Potter Kata'):
+    
     with describe('comprando de uno en uno'):
         with it('el primero cuesta 8'):
             expect(precioLibros([1])).to(equal(8))
         with it('el segundo cuesta 8'):
             expect(precioLibros([2])).to(equal(8))
+
+    with describe('comprando dos'):
+        with it('dos copias del mismo cuestan 16'):
+            expect(precioLibros([1, 1])).to(equal(16))
