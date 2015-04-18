@@ -4,14 +4,20 @@ from expects import *
 from hamcrest import *
 from doublex import *
 
+from collections import Counter
+
 PRECIO_UNITARIO = 8
 LIBRO1 = 'libro1'
 LIBRO2 = 'libro2'
 
 def precioLibros(libros):
-    if len(libros) == 2:
-        if libros[0] != libros[1]:
-            return PRECIO_UNITARIO*2*0.95
+    contadores = Counter(libros)
+    distintos = len(contadores.keys())
+    repetidos = len(libros)-distintos
+
+    if distintos == 2:
+        return PRECIO_UNITARIO * 2 * 0.95 + PRECIO_UNITARIO * repetidos
+
     return PRECIO_UNITARIO * len(libros)
 
 
