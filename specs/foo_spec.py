@@ -9,6 +9,7 @@ from collections import Counter
 PRECIO_UNITARIO = 8
 LIBRO1 = 'libro1'
 LIBRO2 = 'libro2'
+LIBRO3 = 'libro3'
 
 def precioLibros(libros):
     contadores = Counter(libros)
@@ -17,6 +18,9 @@ def precioLibros(libros):
 
     if distintos == 2:
         return PRECIO_UNITARIO * 2 * 0.95 + PRECIO_UNITARIO * repetidos
+    if distintos == 3:
+        return PRECIO_UNITARIO * 3 * 0.90 + PRECIO_UNITARIO * repetidos
+
 
     return PRECIO_UNITARIO * len(libros)
 
@@ -43,4 +47,7 @@ with context('Harry Potter Kata'):
             expect(precioLibros([LIBRO1, LIBRO1, LIBRO1])).to(equal(24))
 
         with it('de los tres, solo dos distintos'):
-            expect(precioLibros([LIBRO1, LIBRO1, LIBRO2])).to(equal(16*0.95 + PRECIO_UNITARIO))        
+            expect(precioLibros([LIBRO1, LIBRO1, LIBRO2])).to(equal(16*0.95 + PRECIO_UNITARIO))
+
+        with it('los tres distintos'):
+            expect(precioLibros([LIBRO1, LIBRO2, LIBRO3])).to(equal(PRECIO_UNITARIO * 3*0.90))
